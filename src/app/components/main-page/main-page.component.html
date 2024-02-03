@@ -2,7 +2,6 @@
 <header class="header pt-7">
   <div class="container-xl">
     <div class="grid grid-cols-1 md:grid-cols-2">
-      <!-- En pantallas pequeñas, el orden es invertido -->
       <div class="md:col-span-1 flex justify-center order-2 md:order-1">
         <div class="text-container p-4 pl-20 flex flex-col justify-center h-full mb-5">
           <h1 class="text-4xl font-bold">Featuring the New Watch of Tomorrow</h1>
@@ -29,70 +28,66 @@
 <!-- MAPA -->
 <div class="container my-12 py-12 mx-auto px-4 md:px-6 lg:px-12">
   <section class="mb-20 text-gray-800">
-    <div class="md:flex md:flex-wrap">
+    <div class="md:flex md:flex-wrap justify-end"> <!-- Ajustar alineación hacia la derecha -->
       <div class="xl:w-6/12 md:w-7/12 mb-6 lg:mb-0 md:pr-3">
         <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.630124212085!2d-58.40536318529148!3d-34.60429218045747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3fc8f4b4ab%3A0x5b7fca5d682f8ea2!2sAv.%20Corrientes%203250%2C%20C1043AAX%20CABA!5e0!3m2!1sen!2sar!4v1643867513822!5m2!1sen!2sar"
-        class="h-80 w-full border-0 rounded-lg shadow-lg" allowfullscreen="" loading="lazy"></iframe>
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.630124212085!2d-58.40536318529148!3d-34.60429218045747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3fc8f4b4ab%3A0x5b7fca5d682f8ea2!2sAv.%20Corrientes%203250%2C%20C1043AAX%20CABA!5e0!3m2!1sen!2sar!4v1643867513822!5m2!1sen!2sar"
+          class="h-80 w-full border-0 rounded-lg shadow-lg" allowfullscreen="" loading="lazy"></iframe>
       </div>
       <div class="xl:w-6/12 md:w-5/12 md:pl-3">
-        <div class="grid xl:grid-cols-2 xl:grid-rows-2 xl:gap-x-4 md:gap-x-6">
-          <div class="mb-10 md:mb-12">
-            <div class="flex items-start">
-              <div class="shrink-0">
-                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="headset" class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path fill="currentColor" d="M192 208c0-17.67-14.33-32-32-32h-16c-35.35 0-64 28.65-64 64v48c0 35.35 28.65 64 64 64h16c17.67 0 32-14.33 32-32V208zm176 144c35.35 0 64-28.65 64-64v-48c0-35.35-28.65-64-64-64h-16c-17.67 0-32 14.33-32 32v112c0 17.67 14.33 32 32 32h16zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0z"></path>
-                  </svg>
+        <div class="mb-10 md:mb-12">
+          <div class="flex items-start">
+            <div class="grow ml-6 mt-6">
+              <h1 class="text-center text-2xl font-bold text-black sm:text-3xl">Consultas</h1>
+
+              <form action="" class="mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+                  <div>
+                    <label for="email" class="sr-only">Email</label>
+
+                  <div class="relative">
+                    <input
+                      type="email"
+                      class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                      placeholder="Ingrese su email"
+                    />
+
+                    <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                          >
+                        <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                        />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div class="grow ml-6">
-                <p class="font-bold mb-1">Technical support</p>
-                <p class="text-gray-500">support@example.com</p>
-                <p class="text-gray-500">+1 234-567-89</p>
-              </div>
-            </div>
-          </div>
-          <div class="mb-10 md:mb-12">
-            <div class="flex items-start">
-              <div class="shrink-0">
-                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="dollar-sign" class="w-3 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512"><path fill="currentColor" d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z"></path></svg>
-                </div>
-              </div>
-              <div class="grow ml-6">
-                <p class="font-bold mb-1">Sales questions</p>
-                <p class="text-gray-500">sales@example.com</p>
-                <p class="text-gray-500">+1 234-567-89</p>
-              </div>
-            </div>
-          </div>
-          <div class="mb-10 md:mb-12">
-            <div class="flex align-start">
-              <div class="shrink-0">
-                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="newspaper" class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M552 64H88c-13.255 0-24 10.745-24 24v8H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h472c26.51 0 48-21.49 48-48V88c0-13.255-10.745-24-24-24zM56 400a8 8 0 0 1-8-8V144h16v248a8 8 0 0 1-8 8zm236-16H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm-208-96H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm0-96H140c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h360c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12z"></path></svg>
-                </div>
-              </div>
-              <div class="grow ml-6">
-                <p class="font-bold mb-1">Press</p>
-                <p class="text-gray-500">press@example.com</p>
-                <p class="text-gray-500">+1 234-567-89</p>
-              </div>
-            </div>
-          </div>
-          <div class="mb-10 md:mb-12">
-            <div class="flex align-start">
-              <div class="shrink-0">
-                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bug" class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M511.988 288.9c-.478 17.43-15.217 31.1-32.653 31.1H424v16c0 21.864-4.882 42.584-13.6 61.145l60.228 60.228c12.496 12.497 12.496 32.758 0 45.255-12.498 12.497-32.759 12.496-45.256 0l-54.736-54.736C345.886 467.965 314.351 480 280 480V236c0-6.627-5.373-12-12-12h-24c-6.627 0-12 5.373-12 12v244c-34.351 0-65.886-12.035-90.636-32.108l-54.736 54.736c-12.498 12.497-32.759 12.496-45.256 0-12.496-12.497-12.496-32.758 0-45.255l60.228-60.228C92.882 378.584 88 357.864 88 336v-16H32.666C15.23 320 .491 306.33.013 288.9-.484 270.816 14.028 256 32 256h56v-58.745l-46.628-46.628c-12.496-12.497-12.496-32.758 0-45.255 12.498-12.497 32.758-12.497 45.256 0L141.255 160h229.489l54.627-54.627c12.498-12.497 32.758-12.497 45.256 0 12.496 12.497 12.496 32.758 0 45.255L424 197.255V256h56c17.972 0 32.484 14.816 31.988 32.9zM257 0c-61.856 0-112 50.144-112 112h224C369 50.144 318.856 0 257 0z"></path></svg>
-                </div>
-              </div>
-              <div class="grow ml-6">
-                <p class="font-bold mb-1">Bug report</p>
-                <p class="text-gray-500">bugs@example.com</p>
-                <p class="text-gray-500">+1 234-567-89</p>
-              </div>
+              <div>
+                        <label for="password" class="sr-only">Mensaje</label>
+
+                        <div class="relative">
+                          <input
+                            type="message"
+                            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                            placeholder="Escriba su mensaje"
+                          />
+                      </div>
+                    </div>
+
+                  <button
+                  type="submit"
+                  class="block w-full rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white"
+                    >
+                  Enviar Mensaje
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -100,9 +95,6 @@
     </div>
   </section>
 </div>
-
-
-
 
 
 <!-- OFERTAS -->
@@ -311,3 +303,37 @@
       </div>
   </div>
 </section>
+
+
+
+
+
+<!-- HISTORY -->
+<div class="grid-container">
+  <div class="grid grid-cols-1 lg:grid-cols-2">
+    <div class="column">
+      <h1 class="text-2xl font-bold mb-6">LA HISTORIA Y LA EVOLUCIÓN DE HORUS</h1>
+        <p>El impulso del deporte ha sido una constante en nuestras vidas, desafiándonos, uniéndonos y motivándonos a alcanzar nuestras metas. A lo largo de las décadas, Horus ha sido un compañero fiel en este viaje, acompañando a deportistas y aficionados en cada etapa de su trayectoria hacia el éxito. Desde sus modestos inicios hasta el día de hoy, nuestra marca ha encarnado la calidad, la innovación y el compromiso con un rendimiento excepcional.
+        <br>
+        <br>
+        Horus ha sido un referente para corredores, basquetbolistas, futbolistas y entusiastas del fitness en todos los rincones del mundo. Ya sea en las calles urbanas o en los senderos montañosos, nuestros productos han sido diseñados para inspirar y potenciar el desempeño de quienes los utilizan. Ya sea que busques superar tus límites personales o simplemente disfrutar de una vida activa y saludable, Horus está aquí para acompañarte en cada paso del camino.
+        <br>
+        <br>
+        En Horus, respaldamos a los visionarios y a quienes desafían los límites. Estamos comprometidos con impulsar el cambio y reflexionar sobre el impacto que generamos en el mundo que nos rodea. Porque para nosotros, el deporte no es simplemente una actividad, es una forma de vida.</p>
+    </div>
+    <div class="column">
+      <h1 class="text-2xl font-bold mb-6">LA OPCION ELEGIDA MAS ELEGIDA</h1>
+      <p>El impulso del deporte ha sido una constante en nuestras vidas, desafiándonos, uniéndonos y motivándonos a alcanzar nuestras metas. A lo largo de las décadas, Horus ha sido un compañero fiel en este viaje, acompañando a deportistas y aficionados en cada etapa de su trayectoria hacia el éxito. Desde sus modestos inicios hasta el día de hoy, nuestra marca ha encarnado la calidad, la innovación y el compromiso con un rendimiento excepcional.
+        <br>
+        <br>
+        En Horus, respaldamos a los visionarios y a quienes desafían los límites. Estamos comprometidos con impulsar el cambio y reflexionar sobre el impacto que generamos en el mundo que nos rodea. Porque para nosotros, el deporte no es simplemente una actividad, es una forma de vida.
+        <br>
+        <br>
+        Horus ha sido un referente para corredores, basquetbolistas, futbolistas y entusiastas del fitness en todos los rincones del mundo. Ya sea en las calles urbanas o en los senderos montañosos, nuestros productos han sido diseñados para inspirar y potenciar el desempeño de quienes los utilizan. Ya sea que busques superar tus límites personales o simplemente disfrutar de una vida activa y saludable, Horus está aquí para acompañarte en cada paso del camino.</p>
+    </div>
+  </div>
+</div>
+
+
+
+

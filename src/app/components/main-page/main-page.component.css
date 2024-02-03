@@ -28,3 +28,31 @@
   box-shadow: 0px 0px var(--main-color);
   transform: translate(3px, 3px);
 }
+
+
+/* HISTORY */
+p, h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.column {
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .column {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .column {
+    padding: 40px;
+  }
+}
