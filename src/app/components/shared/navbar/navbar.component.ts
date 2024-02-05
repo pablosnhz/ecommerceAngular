@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import 'alpinejs';
 
 @Component({
@@ -13,5 +13,6 @@ export class NavbarComponent {
   toggleMenu() {
     this.open = !this.open;
   }
+
 }
 

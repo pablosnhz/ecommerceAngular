@@ -3,11 +3,24 @@
   background-size: cover;
   background-position: center;
   width: 80%;
-  height: 90vh;
+  height: 100vh;
 }
 
+#img-presentation {
+  background-image: url(../../../images/image-presentation.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 30vh;
+}
 
+#img-presentations {
+  background-image: url(../../../images/image-presentacion5.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 30vh;
+}
 
+/* BOTON OUTLET */
 .style-button {
   --font-color: #323232;
   --bg-color: #fff;
@@ -39,6 +52,7 @@ p, h1 {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 10px;
+  background-color: #f5f5e5;
 }
 
 .column {
@@ -54,5 +68,57 @@ p, h1 {
 @media (min-width: 1024px) {
   .column {
     padding: 40px;
+  }
+}
+
+/* cardPrincipal */
+
+.letter {
+  font-size: 13px;
+}
+
+/* buttonCard */
+.hover-button {
+  --color: black;
+  font-family: inherit;
+  display: inline-block;
+  width: 10em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  z-index: 1;
+  color: var(--color);
+  position: relative;
+}
+
+.hover-button::before {
+  position: absolute;
+  content: "";
+  background: var(--color);
+  width: 250px;
+  height: 100px;
+  z-index: -1;
+}
+
+.hover-button:hover {
+  color: white;
+}
+
+.hover-button:before {
+  top: 100%;
+  left: 100%;
+  transition: .0s all;
+}
+
+.hover-button:hover::before {
+  top: -30px;
+  left: -30px;
+}
+
+
+/* mapa-form responsive */
+@media (max-width: 400px) {
+  .map-mobile {
+    padding-right: 1.3rem;
   }
 }

@@ -15,7 +15,7 @@
   height: var(--size-button);
   font-size: 15px;
   border: none;
-  color: #fff;
+  color: #000000;
   outline: none;
   width: var(--size-button);
   transition: all ease 0.3s;
@@ -59,4 +59,13 @@
   .title-center {
     text-align: center;
   }
+}
+
+
+/* STICKY */
+.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
 }
