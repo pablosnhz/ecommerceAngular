@@ -6,18 +6,12 @@
   height: 100vh;
 }
 
-#img-presentation {
-  background-image: url(../../../images/image-presentation.jpg);
+img {
   background-repeat: no-repeat;
   width: 100%;
-  height: 30vh;
-}
-
-#img-presentations {
-  background-image: url(../../../images/image-presentacion5.jpg);
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 30vh;
+  height: 40vh;
+  object-fit: cover;
+  object-position: center 70%;
 }
 
 /* BOTON OUTLET */
@@ -44,7 +38,7 @@
 
 
 /* HISTORY */
-p, h1 {
+p, h1, h2 {
   font-family: Arial, Helvetica, sans-serif;
 }
 

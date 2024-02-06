@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { FormsModule } from '@angular/forms';
+import { CardMainComponent } from './components/main-page/card-main/card-main.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     ShopComponent,
+    CardMainComponent,
   ],
   imports: [
     BrowserModule,
