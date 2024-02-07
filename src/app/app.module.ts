@@ -11,6 +11,9 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { FormsModule } from '@angular/forms';
 import { CardMainComponent } from './components/main-page/card-main/card-main.component';
+import { CardSecondaryComponent } from './components/main-page/card-secondary/card-secondary.component';
+import { ShoppingCartComponent } from './components/shop/shopping-cart/shopping-cart.component';
+import { ProductsComponent } from './components/shop/products/products.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import { CardMainComponent } from './components/main-page/card-main/card-main.co
     FooterComponent,
     ShopComponent,
     CardMainComponent,
+    CardSecondaryComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

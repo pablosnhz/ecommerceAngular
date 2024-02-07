@@ -6,12 +6,40 @@
   height: 100vh;
 }
 
+/* IMG */
+
 img {
   background-repeat: no-repeat;
   width: 100%;
-  height: 40vh;
+  height: 30vh;
   object-fit: cover;
   object-position: center 70%;
+}
+
+.img-presentation img{
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  object-position: center 70%;
+}
+
+.img-presentations img {
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  object-position: center 70%;
+}
+
+
+@media screen and (max-width: 768px) {
+  .img-presentation img {
+    height: 20vh;
+  }
+  .img-presentations img {
+    height: 15vh;
+  }
 }
 
 /* BOTON OUTLET */

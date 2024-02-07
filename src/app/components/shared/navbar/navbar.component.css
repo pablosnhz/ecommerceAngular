@@ -1,10 +1,4 @@
-
-
-
-
-
-
- .container {
+.container {
   position: relative;
   --size-button: 40px;
   color: rgb(23, 23, 23);
@@ -59,6 +53,7 @@
   .title-center {
     text-align: center;
   }
+
 }
 
 
