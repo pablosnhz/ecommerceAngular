@@ -56,5 +56,35 @@ p, h1, h2 {
   }
 }
 
+/* spacios */
+@media (max-width: 639px) and (max-height: 844px) {
+  /* @media (max-width: 768px) { */
+  .little-screen {
+    margin-left: 1rem;
+  }
+
+  .size-box {
+    padding: 0px;
+    margin-bottom: 50px;
+  }
+
+  .max-w-md {
+    max-width: 90%;
+  }
+
+  .object-none {
+    max-height: 30rem;
+  }
+
+  .lette-size {
+    font-size: 0.9rem;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+}
 
 
+ @media (max-width: 768px) {
+.little-screen {
+}
+ }

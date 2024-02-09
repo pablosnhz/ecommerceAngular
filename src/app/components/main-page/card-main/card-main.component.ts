@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-card-main',
   templateUrl: './card-main.component.html',
@@ -33,4 +34,11 @@ export class CardMainComponent implements OnInit {
       this.sliderUno = document.getElementById("sliderUno");
       this.defaultTransform=0
     }
-}
+  }
+
+
+
+
+
+
+

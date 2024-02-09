@@ -36,3 +36,10 @@
   left: -30px;
 }
 
+@media (max-width: 768px) {
+  .responsive {
+    position: relative;
+    top: -20px;
+  }
+  }
+

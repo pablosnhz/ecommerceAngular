@@ -28,3 +28,41 @@
 }
 
 
+@media (max-width: 639px) and (max-height: 844px) {
+  .footer-changes {
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .footer-changes .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-changes .btn {
+    margin-top: 10px;
+  }
+
+  .footer-changes h1 {
+    max-height: 3em;
+    overflow: hidden;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+
+@media (min-width: 640px) or (min-height: 845px) {
+  .footer-changes {
+    flex-direction: row;
+  }
+
+  .footer-changes .flex-col {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .footer-changes .btn {
+    margin-top: 0;
+  }
+}
