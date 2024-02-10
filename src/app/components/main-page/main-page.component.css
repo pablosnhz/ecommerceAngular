@@ -3,7 +3,7 @@
   background-size: cover;
   background-position: center;
   width: 80%;
-  height: 100vh;
+  height: 95vh;
 }
 
 /* IMG */
@@ -172,7 +172,6 @@ p, h1, h2 {
 @media (max-width: 768px) {
   #showcaseImage {
     width: 100%;
-    background-size: 100% ;
     background-repeat: no-repeat;
     background-position: center;
   }

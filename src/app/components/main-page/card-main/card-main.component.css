@@ -59,9 +59,7 @@ p, h1, h2 {
 /* spacios */
 @media (max-width: 639px) and (max-height: 844px) {
   /* @media (max-width: 768px) { */
-  .little-screen {
-    margin-left: 1rem;
-  }
+
 
   .size-box {
     padding: 0px;
@@ -81,10 +79,17 @@ p, h1, h2 {
     font-weight: bold;
     white-space: nowrap;
   }
-}
 
 
- @media (max-width: 768px) {
-.little-screen {
 }
- }
+
+  /* .boxing-position  */
+
+
+
+
+/* @media only screen and (max-width: 639px) {
+
+} */
+
+
