@@ -12,8 +12,10 @@ import { ShopComponent } from './components/shop/shop.component';
 import { FormsModule } from '@angular/forms';
 import { CardMainComponent } from './components/main-page/card-main/card-main.component';
 import { CardSecondaryComponent } from './components/main-page/card-secondary/card-secondary.component';
-import { ShoppingCartComponent } from './components/shop/shopping-cart/shopping-cart.component';
 import { ProductsComponent } from './components/shop/products/products.component';
+
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ProductsComponent } from './components/shop/products/products.component
     CommonModule,
     AppRoutingModule,
     ShopsRoutingModule,
-    FormsModule
+    FormsModule,
+
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
