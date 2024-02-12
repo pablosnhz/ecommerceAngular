@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IProducts } from 'src/app/interface/products';
+import { ProductsService } from 'src/app/services/productos.service';
+import { ShoppingCartComponent } from '../../shop/shopping-cart/shopping-cart.component';
 
 @Component({
   selector: 'app-card-secondary',
@@ -24,11 +27,11 @@ export class CardSecondaryComponent implements OnInit {
       this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
     }
 
-    constructor() { }
 
     ngOnInit(): void {
       this.slider = document.getElementById("slider");
-      this.defaultTransform=0
+      this.defaultTransform=0;
     }
-
 }
+
+

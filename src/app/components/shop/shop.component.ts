@@ -1,27 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/services/users.service';
+import { Component } from '@angular/core';
 import { IProducts } from 'src/app/interface/products';
+import { ProductsService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css']
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent {
 
-  constructor(private serviceUser:UsersService){}
+  products: IProducts[] = [];
 
-  listaProducts: IProducts[] = []
+  constructor(private productsService: ProductsService) {}
 
-  ngOnInit(): void {
-  this.serviceUser.usuarios()
-    .subscribe(
-      (data: any) => {
-        console.log(data);
-        if (Array.isArray(data)) {
-          this.listaProducts = data;
-        }
-      });
+  ngOnInit() {
+    this.productsService.products.subscribe(products => {
+      this.products = products;
+      console.log(products)
+    });
   }
 
 }
