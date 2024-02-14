@@ -18,17 +18,26 @@ export class ProductsService implements OnInit {
       return this.http.get('https://fakestoreapi.com/products/')
     }
 
-  cartProducts: IProducts[] = [];
+  cartProducts: { product: IProducts, quantity: number }[] = [];
+  totalProductsInCart: number = 0;
+  _products: BehaviorSubject<{ product: IProducts, quantity: number }[]> = new BehaviorSubject<{ product: IProducts, quantity: number }[]>([]);
 
-  _products: BehaviorSubject<IProducts[]> = new BehaviorSubject<IProducts[]>([]);
 
   get products(){
     return this._products.asObservable();
   }
 
-  addProduct(product: IProducts){
-    this.cartProducts.push(product);
-    this._products.next(this.cartProducts);
+  addProduct(product: IProducts) {
+    const agregado = this.cartProducts.findIndex(item => item.product.title === product.title  )
+
+    if(agregado !== -1){
+      this.cartProducts[agregado].quantity++;
+    } else {
+      this.cartProducts.push({ product: product, quantity:1 })
+    }
+
+    this.totalProductsInCart = this.cartProducts.reduce((total, item) => total + item.quantity, 0);
+    this._products.next([...this.cartProducts]);
   }
 
   deleteProduct(index: number){

@@ -13,8 +13,6 @@ export class ProductsComponent implements OnInit{
     this.products();
   }
 
-
-
   constructor(private productsService: ProductsService ) { }
 
   listaProductos: IProducts[] = [];

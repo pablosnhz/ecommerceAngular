@@ -9,7 +9,7 @@ import { ProductsService } from 'src/app/services/productos.service';
 })
 export class ShopComponent {
 
-  products: IProducts[] = [];
+  products: { product: IProducts; quantity: number; }[] = [];
 
   constructor(private productsService: ProductsService) {}
 

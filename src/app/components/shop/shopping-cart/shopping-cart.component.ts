@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/services/productos.service';
 })
 export class ShoppingCartComponent implements OnInit{
 
-  products: IProducts[] = [];
+  products: { product: IProducts; quantity: number; }[] = [];
   total: number = 0;
 
   constructor(private productsService: ProductsService){}
@@ -30,10 +30,22 @@ export class ShoppingCartComponent implements OnInit{
 
   suma(){
     this.productsService.products.pipe(map( products => {
-      return products.reduce((prev, curr) => prev + curr.price, 0 )
+      return products.reduce((total, item) => total + (item.product.price * item.quantity), 0 )
     })).subscribe( val => {
       this.total = val
     })
+  }
+
+  incrementQuantity(index: number) {
+    this.products[index].quantity++;
+    this.suma();
+  }
+
+  decrementQuantity(index: number) {
+    if (this.products[index].quantity > 1) {
+      this.products[index].quantity--;
+      this.suma();
+    }
   }
 
 }
