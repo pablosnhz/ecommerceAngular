@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IMerch } from 'src/app/interface/merch';
+import { ProductsService } from 'src/app/services/productos.service';
 
 
 @Component({
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class CardMainComponent implements OnInit {
     sliderUno: any;
     defaultTransform: any;
-
+    listaMerch: IMerch[] = [];
 
     next() {
       this.defaultTransform = this.defaultTransform - 398;
@@ -28,12 +30,26 @@ export class CardMainComponent implements OnInit {
       this.sliderUno.style.transform = "translateX(" + this.defaultTransform + "px)";
     }
 
-    constructor() { }
-
     ngOnInit(): void {
       this.sliderUno = document.getElementById("sliderUno");
       this.defaultTransform=0
+
+      this.merch();
     }
+
+    constructor(private productosService: ProductsService) { }
+
+
+    merch(){
+      this.productosService.merch().subscribe((data) => {
+        if(Array.isArray(data)) {
+          this.listaMerch = data.slice(0, 5);
+        }
+      })
+    }
+
+
+
   }
 
 

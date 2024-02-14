@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProducts } from '../interface/products';
 import { BehaviorSubject } from 'rxjs';
@@ -6,17 +6,24 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService implements OnInit {
+export class ProductsService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    const storedCart = localStorage.getItem('cart')
+    if(storedCart){
+      this.cartProducts = JSON.parse(storedCart)
 
-
-  ngOnInit(): void {
+      this.updateCart();
+    }
   }
 
   productos(){
       return this.http.get('https://fakestoreapi.com/products/')
     }
+
+  merch(){
+    return this.http.get('../../assets/merch.json')
+  }
 
   cartProducts: { product: IProducts, quantity: number }[] = [];
   totalProductsInCart: number = 0;
@@ -36,13 +43,20 @@ export class ProductsService implements OnInit {
       this.cartProducts.push({ product: product, quantity:1 })
     }
 
-    this.totalProductsInCart = this.cartProducts.reduce((total, item) => total + item.quantity, 0);
-    this._products.next([...this.cartProducts]);
+
+    this.updateCart();
   }
 
   deleteProduct(index: number){
     this.cartProducts.splice(index, 1);
-    this._products.next(this.cartProducts);
+
+    this.updateCart();
+  }
+
+  updateCart(){
+    this._products.next([...this.cartProducts]);
+    this.totalProductsInCart = this.cartProducts.reduce((total, item) => total + item.quantity, 0)
+    localStorage.setItem('cart', JSON.stringify(this.cartProducts));
   }
 
   }

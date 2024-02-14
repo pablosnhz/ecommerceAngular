@@ -19,17 +19,14 @@ export class ProductsComponent implements OnInit{
 
   products(){
     this.productsService.productos().subscribe((data) => {
-      // console.log(data);
       if(Array.isArray(data)) {
         this.listaProductos = data;
-        // console.log(data)
       }
     })
   }
 
   onClick(productos: IProducts) {
     this.productsService.addProduct(productos);
-    // console.log(productos)
   }
 
 }

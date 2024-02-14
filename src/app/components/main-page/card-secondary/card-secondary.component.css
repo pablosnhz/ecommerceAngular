@@ -36,6 +36,11 @@
   left: -30px;
 }
 
+.card-image {
+  max-width: 400px;
+  height: auto;
+}
+
 @media (max-width: 768px) {
   .responsive {
     position: relative;
