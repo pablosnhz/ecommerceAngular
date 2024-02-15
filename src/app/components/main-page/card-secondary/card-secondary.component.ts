@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IMerch } from 'src/app/interface/merch';
+import { IProducts } from 'src/app/interface/products';
 import { ProductsService } from 'src/app/services/productos.service';
 
 @Component({
@@ -33,7 +35,7 @@ ngOnInit(): void {
   this.merchCard();
   }
 
-constructor(private productsService: ProductsService){
+constructor(private route: Router, private productsService: ProductsService){
 }
 
 merchCard(){
@@ -43,6 +45,16 @@ merchCard(){
   })
 }
 
+
+detailMerch(productId: number){
+    this.route.navigate(['/details', productId]);
+  }
+
+cantidadElegida: number = 1;
+
+addCart(product: IMerch) {
+    this.productsService.addProduct(product);
+}
 
 }
 

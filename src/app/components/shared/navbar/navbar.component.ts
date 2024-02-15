@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import 'alpinejs';
 
 @Component({
@@ -15,8 +15,5 @@ export class NavbarComponent {
   toggleMenu() {
     this.open = !this.open;
   }
-
-
-
 }
 

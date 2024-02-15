@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProducts } from '../interface/products';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
+import { IMerch } from '../interface/merch';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,19 @@ export class ProductsService {
 
   merch(){
     return this.http.get('../../assets/merch.json')
+  }
+
+  merchDetails(productId: number): Observable<IMerch> {
+    return this.http.get<IMerch[]>('../../assets/merch.json').pipe(
+      map(products => {
+        const product = products.find(item => item.id === productId)
+        if(product){
+          return product;
+        } else {
+          throw new Error (`no se encontro ID ${productId}`)
+        }
+      })
+    );
   }
 
   cartProducts: { product: IProducts, quantity: number }[] = [];
@@ -59,6 +73,10 @@ export class ProductsService {
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
   }
 
-  }
+
+
+
+
+}
 
 

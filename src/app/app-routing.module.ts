@@ -9,23 +9,10 @@ import { ProductsComponent } from './components/shop/products/products.component
 
 const routes: Routes = [
   {
-    path: '', component: ShopComponent,
-    children: [
-      { path: '',  component: MainPageComponent },
-      { path: 'details', component: DetailsComponent }
-    ]
-  },
-  {
-    path: '', component: ShopComponent,
-    children: [
+    path: '', component: ShopComponent, children: [
       { path: '', component: MainPageComponent },
-      { path: 'shopping', component: ShoppingCartComponent }
-    ]
-  },
-  {
-    path: '', component: ShopComponent,
-    children: [
-      { path: '', component: MainPageComponent },
+      { path: 'details/:id', component: DetailsComponent },
+      { path: 'shopping', component: ShoppingCartComponent },
       { path: 'shop', component: ProductsComponent }
     ]
   },
