@@ -18,7 +18,6 @@ export class ShoppingCartComponent implements OnInit{
   ngOnInit(){
     this.productsService.products.subscribe(products => {
       this.products = products
-      console.log(products)
 
     this.suma();
     })
@@ -38,12 +37,17 @@ export class ShoppingCartComponent implements OnInit{
 
   incrementQuantity(index: number) {
     this.products[index].quantity++;
+    console.log('sumando productos', this.products)
+
+    this.productsService.updateCart()
     this.suma();
   }
 
   decrementQuantity(index: number) {
     if (this.products[index].quantity > 1) {
       this.products[index].quantity--;
+
+      this.productsService.updateCart()
       this.suma();
     }
   }

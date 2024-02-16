@@ -1,5 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
-import 'alpinejs';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',

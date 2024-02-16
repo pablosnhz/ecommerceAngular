@@ -49,7 +49,7 @@ export class ProductsService {
   }
 
   addProduct(product: IProducts) {
-    const agregado = this.cartProducts.findIndex(item => item.product.title === product.title  )
+    const agregado = this.cartProducts.findIndex(item => item.product.title === product.title )
 
     if(agregado !== -1){
       this.cartProducts[agregado].quantity++;
@@ -74,7 +74,18 @@ export class ProductsService {
   }
 
 
+  addProducts(product: IProducts , quantity: number) {
+    const agregado = this.cartProducts.findIndex(item => item.product.title === product.title  )
 
+    if(agregado !== -1){
+      this.cartProducts[agregado].quantity++;
+    } else {
+      this.cartProducts.push({ product: product, quantity:1 })
+    }
+
+
+    this.updateCart();
+  }
 
 
 }

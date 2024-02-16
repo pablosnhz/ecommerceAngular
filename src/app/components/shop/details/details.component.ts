@@ -36,13 +36,6 @@ export class DetailsComponent implements OnInit{
     this.productService.addProduct(product);
   }
 
-  cantidadElegida: number = 1;
-  cantidades: number[] = [ 1, 2, 3, 4 ]
-
-  cantidadAgregada(){
-
-  }
-
 }
 
 
