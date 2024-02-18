@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { map } from 'rxjs';
+import { Subscription, map } from 'rxjs';
 import { IProducts } from 'src/app/interface/products';
 import { ProductsService } from 'src/app/services/productos.service';
 
@@ -51,5 +51,23 @@ export class ShoppingCartComponent implements OnInit{
       this.suma();
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

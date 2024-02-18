@@ -39,14 +39,14 @@ export class ProductsService {
     );
   }
 
-  cartProducts: { product: IProducts, quantity: number }[] = [];
-  totalProductsInCart: number = 0;
-  _products: BehaviorSubject<{ product: IProducts, quantity: number }[]> = new BehaviorSubject<{ product: IProducts, quantity: number }[]>([]);
-
+  _productsBsubject: BehaviorSubject<{ product: IProducts, quantity: number }[]> = new BehaviorSubject<{ product: IProducts, quantity: number }[]>([]);
 
   get products(){
-    return this._products.asObservable();
+    return this._productsBsubject.asObservable();
   }
+
+  cartProducts: { product: IProducts, quantity: number }[] = [];
+  totalProductsInCart: number = 0;
 
   addProduct(product: IProducts) {
     const agregado = this.cartProducts.findIndex(item => item.product.title === product.title )
@@ -68,7 +68,7 @@ export class ProductsService {
   }
 
   updateCart(){
-    this._products.next([...this.cartProducts]);
+    this._productsBsubject.next([...this.cartProducts]);
     this.totalProductsInCart = this.cartProducts.reduce((total, item) => total + item.quantity, 0)
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
   }

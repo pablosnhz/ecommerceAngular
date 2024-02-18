@@ -1,7 +1,27 @@
+<div class="imge">
+  <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white">Discover Our Innovative Products</h1>
+  <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-100">Explore our range of cutting-edge products designed to enhance your life and solve everyday challenges.</p>
+  <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+    Shop Now
+    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+  </svg>
+</a>
+</div>
 
-<section id="Projects"
+
+<ng-container *ngIf="isLoading; else products">
+  <div class="flex justify-center">
+    <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+      <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #products>
+  <section id="Projects"
   class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mb-5 grid-responsive" style="margin-top: 100px; margin-bottom: 100px">
-<div *ngFor="let item of listaProductos; let i = index">
+  <div *ngFor="let item of listaProductos; let i = index">
   <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
           <img [src]="item.image"
                   alt="Product" class="h-50 w-72 object-cover rounded-t-xl"/>
@@ -37,7 +57,9 @@
           'floating-chat.donateButton.text-color': '#fff'
       });
 </script>
+</ng-template>
 
+
+<div class="mb-5">
 <app-card-secondary></app-card-secondary>
-
-<div class="lg:mt-10"></div>
+</div>

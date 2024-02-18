@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit{
 
   constructor(private productsService: ProductsService ) { }
 
+  isLoading = true;
   listaProductos: IProducts[] = [];
   cantidadElegida: number = 1
 
@@ -22,6 +23,7 @@ export class ProductsComponent implements OnInit{
     this.productsService.productos().subscribe((data) => {
       if(Array.isArray(data)) {
         this.listaProductos = data;
+        this.isLoading = false;
       }
     })
   }
