@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IMerch } from 'src/app/interface/merch';
 import { ProductsService } from 'src/app/services/productos.service';
 
@@ -9,6 +10,7 @@ import { ProductsService } from 'src/app/services/productos.service';
   styleUrls: ['./card-main.component.css']
 })
 export class CardMainComponent implements OnInit {
+
     sliderUno: any;
     defaultTransform: any;
     listaMerch: IMerch[] = [];
@@ -37,7 +39,14 @@ export class CardMainComponent implements OnInit {
       this.merch();
     }
 
-    constructor(private productosService: ProductsService) { }
+    constructor(private productosService: ProductsService, private route: Router) {
+
+     }
+
+
+    detailCard(productId: number){
+      this.route.navigate(['/details', productId])
+    }
 
 
     merch(){
@@ -48,6 +57,9 @@ export class CardMainComponent implements OnInit {
       })
     }
 
+    addCart(product: IMerch){
+      this.productosService.addProducts(product, 2)
+    }
 
 
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProducts } from 'src/app/interface/products';
 import { ProductsService } from 'src/app/services/productos.service';
 
@@ -10,14 +11,14 @@ import { ProductsService } from 'src/app/services/productos.service';
 export class ProductsComponent implements OnInit{
 
   ngOnInit(): void {
+
     this.products();
   }
 
-  constructor(private productsService: ProductsService ) { }
+  constructor(private productsService: ProductsService, private route: Router ) { }
 
   isLoading = true;
   listaProductos: IProducts[] = [];
-  cantidadElegida: number = 1
 
   products(){
     this.productsService.productos().subscribe((data) => {
@@ -28,8 +29,13 @@ export class ProductsComponent implements OnInit{
     })
   }
 
-  onClick(productos: IProducts) {
-    this.productsService.addProduct(productos);
+  addCart(productos: IProducts) {
+    this.productsService.addProducts(productos, 0);
+  }
+
+  detailProduct(productId: number){
+    this.route.navigate(['/details', productId]);
   }
 
 }
+

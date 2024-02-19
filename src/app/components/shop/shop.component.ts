@@ -12,7 +12,7 @@ export class ShopComponent {
   products: { product: IProducts; quantity: number; }[] = [];
   totalQuantity: number = 0;
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService ) {}
 
   ngOnInit() {
     this.productsService.products.subscribe(products => {

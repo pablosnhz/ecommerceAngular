@@ -13,7 +13,8 @@ const routes: Routes = [
       { path: '', component: MainPageComponent },
       { path: 'details/:id', component: DetailsComponent },
       { path: 'shopping', component: ShoppingCartComponent },
-      { path: 'shop', component: ProductsComponent }
+      { path: 'shop', component: ProductsComponent },
+      { path: 'shop/:id', component: ProductsComponent }
     ]
   },
   {

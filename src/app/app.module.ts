@@ -14,10 +14,10 @@ import { CardMainComponent } from './components/main-page/card-main/card-main.co
 import { CardSecondaryComponent } from './components/main-page/card-secondary/card-secondary.component';
 import { ProductsComponent } from './components/shop/products/products.component';
 
-
 import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './components/shop/shopping-cart/shopping-cart.component';
 import { DetailsComponent } from './components/shop/details/details.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { DetailsComponent } from './components/shop/details/details.component';
     AppRoutingModule,
     ShopsRoutingModule,
     FormsModule,
+    RouterModule,
 
     HttpClientModule
   ],

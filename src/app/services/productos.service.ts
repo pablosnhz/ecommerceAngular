@@ -39,6 +39,19 @@ export class ProductsService {
     );
   }
 
+  apiProductDetail(productsId: number): Observable<IProducts>{
+    return this.http.get<IProducts[]>('https://fakestoreapi.com/products/').pipe(
+      map(products => {
+        const product = products.find(item => item.id === productsId)
+        if(product){
+          return product
+        } else {
+          throw new Error (`no se encontro el elemento de tipo ID ${productsId}`)
+        }
+      })
+    )
+  }
+
   _productsBsubject: BehaviorSubject<{ product: IProducts, quantity: number }[]> = new BehaviorSubject<{ product: IProducts, quantity: number }[]>([]);
 
   get products(){
@@ -48,22 +61,9 @@ export class ProductsService {
   cartProducts: { product: IProducts, quantity: number }[] = [];
   totalProductsInCart: number = 0;
 
-  addProduct(product: IProducts) {
-    const agregado = this.cartProducts.findIndex(item => item.product.title === product.title )
-
-    if(agregado !== -1){
-      this.cartProducts[agregado].quantity++;
-    } else {
-      this.cartProducts.push({ product: product, quantity:1 })
-    }
-
-
-    this.updateCart();
-  }
 
   deleteProduct(index: number){
     this.cartProducts.splice(index, 1);
-
     this.updateCart();
   }
 
@@ -82,8 +82,6 @@ export class ProductsService {
     } else {
       this.cartProducts.push({ product: product, quantity:1 })
     }
-
-
     this.updateCart();
   }
 
