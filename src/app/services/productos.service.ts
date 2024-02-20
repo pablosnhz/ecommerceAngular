@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { IProducts } from '../interface/products';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { IMerch } from '../interface/merch';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private route: Router) {
     const storedCart = localStorage.getItem('cart')
     if(storedCart){
       this.cartProducts = JSON.parse(storedCart)
@@ -85,6 +86,57 @@ export class ProductsService {
     this.updateCart();
   }
 
+
+
+  // busquedaFiltrada
+  private searchResultsSubject = new BehaviorSubject<IProducts[]>([]);
+  public searchResults$ = this.searchResultsSubject.asObservable();
+
+
+  searchProductss(title: string): void {
+    this.http.get<IProducts[]>('https://fakestoreapi.com/products').pipe(
+      map(products => products.filter(product => product.title.toLowerCase().includes(title.toLowerCase())))
+    ).subscribe(
+      searchResults => {
+        this.searchResultsSubject.next(searchResults);
+          if(searchResults.length > 0){
+            this.navigateDetails(searchResults[0].title)
+          }
+      },
+      error => {
+        console.error('Error para encontrar los resultados', error);
+      }
+    );
+  }
+
+  navigateDetails(title: string): void {
+    this.route.navigate(['/details', title]);
+  }
+
+  private searchResultsMerchSubject = new BehaviorSubject<IMerch[]>([]);
+  public searchResultsMerch$ = this.searchResultsMerchSubject.asObservable();
+
+  searchMerchProducts(title: string): void {
+    this.http.get<IMerch[]>('../../assets/merch.json').pipe(
+      map( merch => merch.filter(merchs => merchs.title.toLowerCase().includes(title.toLowerCase())) )
+    ).subscribe(
+      searchMerchResults => {
+        this.searchResultsMerchSubject.next(searchMerchResults);
+          if(searchMerchResults.length > 0){
+            this.navigateMerchDetails(searchMerchResults[0].title)
+          }
+      },
+      error => {
+        console.error('Error para encontrar los resultados', error)
+      }
+    )
+  }
+
+  navigateMerchDetails(title: string): void {
+    this.route.navigate(['/details', title]);
+  }
+
+  // fin busqueda filtrada
 
 }
 

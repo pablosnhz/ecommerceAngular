@@ -26,7 +26,22 @@ export class DetailsComponent implements OnInit{
 
       this.productsDetails(this.productoId);
       this.detailsProducts(this.productosId);
+
+
+    // filtro busqueda IProducts
+    this.productService.searchResults$.subscribe(searchResults => {
+      if(searchResults.length > 0) {
+        this.detailProducts = searchResults[0]
+        }
+      })
     })
+
+    this.productService.searchResultsMerch$.subscribe(searchMerchResults => {
+      if(searchMerchResults.length > 0){
+        this.productDetails = searchMerchResults[0];
+      }
+    })
+
   }
 
   // detalles service, paso informacion
@@ -53,7 +68,6 @@ export class DetailsComponent implements OnInit{
     this.mensajeExito = false;
   }, 1000);
   }
-
 }
 
 

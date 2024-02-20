@@ -31,8 +31,8 @@
 
         <div class="flex pt-8">
           <span class="title-font font-medium text-2xl text-gray-900">{{ productDetails.price | currency }}</span>
-          <button routerLink="/home" class="flex ml-auto text-white bg-gray-600 border-0 py-2 px-6 font-semibold focus:outline-none hover:bg-gray-500 rounded-xl">Volver</button>
-          <button (click)="addCart(productDetails)" class="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 font-semibold focus:outline-none hover:bg-blue-500 rounded-xl">Agregar al carrito</button>
+          <button routerLink="/home" class="flex ml-auto text-white bg-gray-600 border-0 py-2 px-4 sm:px-6 font-semibold focus:outline-none hover:bg-gray-500 rounded-xl small-button">Volver</button>
+          <button (click)="addCart(productDetails)" class="flex ml-auto text-white bg-blue-600 border-0 py-2 px-4 sm:px-6 font-semibold focus:outline-none hover:bg-blue-500 rounded-xl small-button">Agregar al carrito</button>
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@
 
 
 <!-- cart message -->
-<div *ngIf="mensajeExito; productDetails" class="bg-green-200 text-green-800 p-4 mb-4 rounded">
+<div *ngIf="mensajeExito && ( productDetails || detailProducts )" class="bg-green-200 text-green-800 p-4 mb-4 rounded">
   <div class="fixed z-10 inset-0 overflow-y-auto">
     <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
         <div class="fixed inset-0 transition-opacity">
@@ -106,7 +106,7 @@
                     </h3>
                     <div class="mt-2">
                         <p class="text-sm leading-5 text-gray-500">
-                            Se ha agregado al carrito {{ productDetails?.title }}
+                            Se ha agregado al carrito {{ productDetails?.title || detailProducts?.title  }}
                         </p>
                     </div>
                 </div>
