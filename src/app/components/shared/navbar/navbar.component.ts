@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, combineLatest, forkJoin, map } from 'rxjs';
+import { Observable, forkJoin, map } from 'rxjs';
 import { IMerch } from 'src/app/interface/merch';
 import { IProducts } from 'src/app/interface/products';
 import { ProductsService } from 'src/app/services/productos.service';
@@ -34,6 +34,8 @@ export class NavbarComponent implements OnInit{
   searchProducts():void {
     this.productService.searchProductss(this.filteredProducts);
     this.productService.searchMerchProducts(this.filteredProducts);
+
+    this.refreshPage();
   }
 
   searchResults(): Observable<( IProducts[] | IMerch[] )> {
@@ -43,6 +45,13 @@ export class NavbarComponent implements OnInit{
     ]).pipe(
       map(([products, merch]) => [...products, ...merch])
     )
+  }
+
+
+  refreshPage(): void {
+    this.route.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.route.navigate([this.route.url])
+    })
   }
 }
 

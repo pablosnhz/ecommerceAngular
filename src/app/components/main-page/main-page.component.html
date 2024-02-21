@@ -250,7 +250,7 @@
 
 <!-- MAPA -->
 <div class="container my-12  mx-auto px-4 md:px-6 lg:px-12">
-  <section class="mb-20 text-gray-800">
+  <form id="form" class="mb-20 text-gray-800">
     <div class="md:flex md:flex-wrap justify-end ">
       <div class="xl:w-6/12 md:w-7/12 mb-6 lg:mb-0 md:pr-3">
         <iframe
@@ -261,17 +261,20 @@
         <div class="mb-10 md:mb-12">
           <div class="flex items-start">
             <div class="grow ml-6 mt-6 mr-5">
-              <h1 class="text-center text-2xl font-bold text-black sm:text-3xl">Consultas</h1>
+              <h1 class="text-center text-2xl font-bold text-black sm:text-3xl">Contact</h1>
 
-              <form action="" class="mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+              <form action="" #form class="mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8" (ngSubmit)="onSubmit()">
                   <div>
-                    <label for="email" class="sr-only">Email</label>
-
+                    <label for="email_id" class="sr-only">Email</label>
                   <div class="relative">
                     <input
                       type="email"
+                      name="email_id"
+                      id="email_id"
                       class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                      placeholder="Ingrese su email"
+                      placeholder="Your email"
+                      [(ngModel)]="formData.email"
+                      required
                     />
 
                     <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -297,9 +300,12 @@
 
                         <div class="relative">
                           <input
-                            type="message"
+                            name="message"
+                            id="message"
                             class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                            placeholder="Escriba su mensaje"
+                            placeholder="Leave your message"
+                            [(ngModel)]="formData.message"
+                            required
                           />
                       </div>
                     </div>
@@ -307,8 +313,10 @@
                   <button
                   type="submit"
                   class="block w-full rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white"
+                  id="button"
+                  value="Send Email"
                     >
-                  Enviar Mensaje
+                  Send Email
                 </button>
               </form>
             </div>
@@ -316,7 +324,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </form>
 </div>
 
 

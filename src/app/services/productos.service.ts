@@ -94,6 +94,9 @@ export class ProductsService {
 
 
   searchProductss(title: string): void {
+    if (title.trim() === '') {
+      return;
+    }
     this.http.get<IProducts[]>('https://fakestoreapi.com/products').pipe(
       map(products => products.filter(product => product.title.toLowerCase().includes(title.toLowerCase())))
     ).subscribe(
@@ -117,6 +120,9 @@ export class ProductsService {
   public searchResultsMerch$ = this.searchResultsMerchSubject.asObservable();
 
   searchMerchProducts(title: string): void {
+    if (title.trim() === '') {
+      return;
+    }
     this.http.get<IMerch[]>('../../assets/merch.json').pipe(
       map( merch => merch.filter(merchs => merchs.title.toLowerCase().includes(title.toLowerCase())) )
     ).subscribe(

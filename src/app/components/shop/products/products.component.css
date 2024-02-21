@@ -1,7 +1,9 @@
 .imge {
   background-image: url(../../../../images/image-presentacion3.jpg);
   height: 40vh;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(100px);
+
+  background-position: center top;
 
   display: flex;
   flex-direction: column;
