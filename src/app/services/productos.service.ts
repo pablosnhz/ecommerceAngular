@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProducts } from '../interface/products';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, throwError } from 'rxjs';
 import { IMerch } from '../interface/merch';
 import { Router } from '@angular/router';
 
@@ -30,12 +30,15 @@ export class ProductsService {
   merchDetails(productId: number): Observable<IMerch> {
     return this.http.get<IMerch[]>('../../assets/merch.json').pipe(
       map(products => {
-        const product = products.find(item => item.id === productId)
-        if(product){
+        const product = products.find(item => item.id === productId);
+        if (product) {
           return product;
         } else {
-          throw new Error (`no se encontro ID ${productId}`)
+          throw new Error('Búsqueda no válida');
         }
+      }),
+      catchError(error => {
+        return throwError('Búsqueda no válida');
       })
     );
   }
@@ -49,6 +52,9 @@ export class ProductsService {
         } else {
           throw new Error (`no se encontro el elemento de tipo ID ${productsId}`)
         }
+      }),
+      catchError(error => {
+        return throwError('Búsqueda no válida');
       })
     )
   }
@@ -140,6 +146,12 @@ export class ProductsService {
 
   navigateMerchDetails(title: string): void {
     this.route.navigate(['/details', title]);
+  }
+
+  refreshResults(): void {
+    this.searchResultsMerchSubject.next([]);
+    this.searchResultsSubject.next([]);
+
   }
 
   // fin busqueda filtrada

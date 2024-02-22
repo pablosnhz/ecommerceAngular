@@ -42,6 +42,7 @@ export class DetailsComponent implements OnInit{
       }
     })
 
+    this.productService.refreshResults();
   }
 
   // detalles service, paso informacion

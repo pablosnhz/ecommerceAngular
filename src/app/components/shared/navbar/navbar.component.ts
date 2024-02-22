@@ -29,11 +29,14 @@ export class NavbarComponent implements OnInit{
   ngOnInit(): void {
     this.searchResults$ = this.productService.searchResults$;
     this.searchMerchResults$ = this.productService.searchResultsMerch$;
+
   }
 
   searchProducts():void {
+
     this.productService.searchProductss(this.filteredProducts);
     this.productService.searchMerchProducts(this.filteredProducts);
+    this.filteredProducts = '';
 
     this.refreshPage();
   }
@@ -41,16 +44,18 @@ export class NavbarComponent implements OnInit{
   searchResults(): Observable<( IProducts[] | IMerch[] )> {
     return forkJoin([
       this.searchResults$,
-      this.searchMerchResults$
+      this.searchMerchResults$,
+
     ]).pipe(
       map(([products, merch]) => [...products, ...merch])
-    )
-  }
+      )
+    }
 
 
-  refreshPage(): void {
-    this.route.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-      this.route.navigate([this.route.url])
+    // por cada busqueda recargo pagina
+    refreshPage(): void {
+      this.route.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.route.navigate([this.route.url])
     })
   }
 }

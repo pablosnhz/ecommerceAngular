@@ -1,5 +1,5 @@
 <div class="w-full relative px-6 mt-20 size-box">
-  <p class="text-2xl font-bold mb-2 mt-8 lette-size pl-3">TE INTERESA ALGUNO DE ESTOS PRODUCTOS?</p>
+  <p class="text-2xl font-bold mb-2 mt-8 lette-size pl-3">ARE YOU INTERESED IN ANY OF THESE PRODUCTS?</p>
   <div class="flex items-center justify-center ">
     <button aria-label="slide backward" class="absolute z-30 left-0 ml-8 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" (click)="prev()">
       <svg width="20" height="50" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,7 +13,7 @@
             <img [src]="merch.image" alt="Mountain" class="w-full h-64 object-none" style="height: 30rem;">
               <div class="p-6">
                   <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ merch.title }}</h2>
-                  <p class="text-1xl font-bold text-gray-700 mb-1">PRECIO: {{ merch.price | currency }}</p>
+                  <p class="text-1xl font-bold text-gray-700 mb-1">PRICE: {{ merch.price | currency }}</p>
                   <p class="text-gray-600 leading-tight mb-4 letter">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu sapien porttitor, blandit velit ac,
                       vehicula elit. Nunc et ex at turpis rutrum viverra.
@@ -21,7 +21,7 @@
                   <div class="flex justify-between items-center">
                       <div class="flex items-center">
                         <button class="hover-button">
-                          <span class="text-white-500 font-bold underline" (click)="addCart(merch); $event.stopPropagation()">COMPRAR AHORA</span>
+                          <span class="text-white-500 font-bold underline" (click)="addCart(merch); $event.stopPropagation()">SHOP NOW</span>
                         </button>
                       </div>
                   </div>
