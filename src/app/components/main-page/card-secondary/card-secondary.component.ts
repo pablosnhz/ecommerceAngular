@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { IMerch } from 'src/app/interface/merch';
 import { ProductsService } from 'src/app/services/productos.service';
 
+import { register } from 'swiper/element/bundle';
+register();
+
 @Component({
   selector: 'app-card-secondary',
   templateUrl: './card-secondary.component.html',
@@ -33,10 +36,12 @@ ngOnInit(): void {
   this.merchCard();
   }
 
+
 constructor(private route: Router, private productsService: ProductsService){}
 
 merchCard(){
-  this.productsService.merch().subscribe((data) => {
+  this.productsService.merch()
+  .subscribe((data) => {
     if(Array.isArray(data))
     this.merchList = data.slice(5, 15)
   })
@@ -48,7 +53,8 @@ detailMerch(productId: number){
 
 addCart(product: IMerch) {
     this.productsService.addProducts(product, 0);
+  }
 }
-}
+
 
 

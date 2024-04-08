@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
+import { Component, OnInit, inject } from '@angular/core';
+import { map, takeUntil } from 'rxjs';
 import { IProducts } from 'src/app/interface/products';
 import { ProductsService } from 'src/app/services/productos.service';
 
@@ -16,7 +16,8 @@ export class ShoppingCartComponent implements OnInit{
   constructor(private productsService: ProductsService){}
 
   ngOnInit(){
-    this.productsService.products.subscribe(products => {
+    this.productsService.products
+    .subscribe(products => {
       this.products = products
 
     this.suma();

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { takeUntil } from 'rxjs';
 import { IMerch } from 'src/app/interface/merch';
 import { IProducts } from 'src/app/interface/products';
 import { ProductsService } from 'src/app/services/productos.service';
@@ -11,6 +12,7 @@ import { ProductsService } from 'src/app/services/productos.service';
 })
 export class DetailsComponent implements OnInit{
 
+
   productoId: number = 0;
   productDetails: IMerch | undefined;
   mensajeExito: boolean = false;
@@ -20,7 +22,8 @@ export class DetailsComponent implements OnInit{
   constructor(private route: ActivatedRoute, private productService: ProductsService ){}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.params
+    .subscribe(params => {
       this.productoId = +params['id'];
       this.productosId = +params['id']
 
@@ -29,14 +32,16 @@ export class DetailsComponent implements OnInit{
 
 
     // filtro busqueda IProducts
-    this.productService.searchResults$.subscribe(searchResults => {
+    this.productService.searchResults$
+    .subscribe(searchResults => {
       if(searchResults.length > 0) {
         this.detailProducts = searchResults[0]
         }
       })
     })
 
-    this.productService.searchResultsMerch$.subscribe(searchMerchResults => {
+    this.productService.searchResultsMerch$
+    .subscribe(searchMerchResults => {
       if(searchMerchResults.length > 0){
         this.productDetails = searchMerchResults[0];
       }
@@ -47,7 +52,8 @@ export class DetailsComponent implements OnInit{
 
   // detalles service, paso informacion
   productsDetails(productId: number){
-    this.productService.merchDetails(productId).subscribe(
+    this.productService.merchDetails(productId)
+    .subscribe(
       (product) => {
         this.productDetails = product;
       })
@@ -55,7 +61,8 @@ export class DetailsComponent implements OnInit{
 
   // detalles service
   detailsProducts(productsId: number){
-    this.productService.apiProductDetail(productsId).subscribe(
+    this.productService.apiProductDetail(productsId)
+    .subscribe(
       (product) => {
         this.detailProducts = product;
       })

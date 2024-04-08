@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs';
 import { IProducts } from 'src/app/interface/products';
 import { ProductsService } from 'src/app/services/productos.service';
+import { AutoDestroyService } from 'src/app/services/utils/auto-destroy.service';
 
 @Component({
   selector: 'app-products',
@@ -9,6 +11,7 @@ import { ProductsService } from 'src/app/services/productos.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit{
+
 
   ngOnInit(): void {
     this.products();
@@ -20,7 +23,8 @@ export class ProductsComponent implements OnInit{
   listaProductos: IProducts[] = [];
 
   products(){
-    this.productsService.productos().subscribe((data) => {
+    this.productsService.productos()
+    .subscribe((data) => {
       if(Array.isArray(data)) {
         this.listaProductos = data;
         this.isLoading = false;

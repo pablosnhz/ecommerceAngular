@@ -2,7 +2,7 @@
   background-image: url(../../../images/showcase.png);
   background-size: cover;
   background-position: center;
-  width: 80%;
+  width: 70%;
   height: 95vh;
 }
 
@@ -188,3 +188,4 @@ p, h1, h2 {
     background-position: center;
   }
 }
+

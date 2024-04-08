@@ -13,7 +13,9 @@ Para hacer la busquedas filtradas hice uso de RxJS haciendo uso de BehaviorSubje
 Se que podria haber hecho uso de BehaviorSubject en varios casos de mi aplicacion pero tambien quise tener el reto de generar un codigo extenso en el cual no hacia solo uso de BehaviorSubject y dar por finalizada la aplicacion, ejemplo tener una funcion que se comparte en diversos componentes y no tener que estar haciendo simplemente el uso de BehaviorSubject.
 Navegue entre rutas mediante el Enrutamiento como tambien en el detalle de las tarjetas donde coloque como parametro el id de los productos para mostrar caracteristicas en el Details el cual al seleccionarlo nos lleva hasta ahi, sin olvidar que cree las interfaces para cada una de API/JSON.
 
+Cambios en abril: Aplicando lazy loading y un swiper para el estilo del slider de productos, sin olvidarme de el autoDestroy.
+
 <img src="./src/images/main.jpg">
 <img src="./src/images/outlet.jpg">
 <img src="./src/images/cart.jpg">
-<img src="./src/images/search.jpg">
+<img src="./src/images/Search.jpg">

@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProducts } from '../interface/products';
-import { BehaviorSubject, Observable, catchError, map, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, takeUntil, throwError } from 'rxjs';
 import { IMerch } from '../interface/merch';
 import { Router } from '@angular/router';
+import { AutoDestroyService } from './utils/auto-destroy.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
+
+  private readonly destroy$: AutoDestroyService = inject(AutoDestroyService);
 
   constructor(private http:HttpClient, private route: Router) {
     const storedCart = localStorage.getItem('cart')
@@ -28,8 +31,9 @@ export class ProductsService {
   }
 
   merchDetails(productId: number): Observable<IMerch> {
-    return this.http.get<IMerch[]>('../../assets/merch.json').pipe(
-      map(products => {
+    return this.http.get<IMerch[]>('../../assets/merch.json')
+    .pipe(takeUntil(this.destroy$),
+    map(products => {
         const product = products.find(item => item.id === productId);
         if (product) {
           return product;
@@ -44,7 +48,8 @@ export class ProductsService {
   }
 
   apiProductDetail(productsId: number): Observable<IProducts>{
-    return this.http.get<IProducts[]>('https://fakestoreapi.com/products/').pipe(
+    return this.http.get<IProducts[]>('https://fakestoreapi.com/products/')
+    .pipe(takeUntil(this.destroy$),
       map(products => {
         const product = products.find(item => item.id === productsId)
         if(product){
@@ -103,7 +108,8 @@ export class ProductsService {
     if (title.trim() === '') {
       return;
     }
-    this.http.get<IProducts[]>('https://fakestoreapi.com/products').pipe(
+    this.http.get<IProducts[]>('https://fakestoreapi.com/products')
+    .pipe(takeUntil(this.destroy$),
       map(products => products.filter(product => product.title.toLowerCase().includes(title.toLowerCase())))
     ).subscribe(
       searchResults => {
@@ -129,7 +135,8 @@ export class ProductsService {
     if (title.trim() === '') {
       return;
     }
-    this.http.get<IMerch[]>('../../assets/merch.json').pipe(
+    this.http.get<IMerch[]>('../../assets/merch.json')
+    .pipe(takeUntil(this.destroy$),
       map( merch => merch.filter(merchs => merchs.title.toLowerCase().includes(title.toLowerCase())) )
     ).subscribe(
       searchMerchResults => {

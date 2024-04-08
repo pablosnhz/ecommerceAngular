@@ -15,7 +15,8 @@ export class ShopComponent {
   constructor(private productsService: ProductsService ) {}
 
   ngOnInit() {
-    this.productsService.products.subscribe(products => {
+    this.productsService.products
+    .subscribe(products => {
       this.products = products;
 
       console.log('Productos actualizados', this.products)

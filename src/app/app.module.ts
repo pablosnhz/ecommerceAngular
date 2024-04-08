@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
-import { ShopsRoutingModule } from './components/shop/shop.module';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { ShopComponent } from './components/shop/shop.component';
@@ -18,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './components/shop/shopping-cart/shopping-cart.component';
 import { DetailsComponent } from './components/shop/details/details.component';
 import { RouterModule } from '@angular/router';
+import { ShopRoutingModule } from './components/shop/shop-routing-routing.module';
+import { AutoDestroyService } from './services/utils/auto-destroy.service';
 
 @NgModule({
   declarations: [
@@ -30,20 +31,21 @@ import { RouterModule } from '@angular/router';
     CardSecondaryComponent,
     ProductsComponent,
     ShoppingCartComponent,
-    DetailsComponent
+    DetailsComponent,
+
 
   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    ShopsRoutingModule,
     FormsModule,
     RouterModule,
 
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ AutoDestroyService ],
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
