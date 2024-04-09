@@ -17,17 +17,12 @@ slider: any;
 defaultTransform: any;
 merchList: IMerch[] = [];
 
-goNext() {
-  this.defaultTransform = this.defaultTransform - 398;
-  if (Math.abs(this.defaultTransform) >= this.slider.scrollWidth / 1.7) this.defaultTransform = 0;
-  this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
-}
 
-goPrev() {
-  if (Math.abs(this.defaultTransform) === 0) this.defaultTransform = 0;
-  else this.defaultTransform = this.defaultTransform + 398;
-  this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
-}
+
+
+
+
+constructor(private route: Router, private productsService: ProductsService){}
 
 ngOnInit(): void {
   this.slider = document.getElementById("slider");
@@ -37,7 +32,6 @@ ngOnInit(): void {
   }
 
 
-constructor(private route: Router, private productsService: ProductsService){}
 
 merchCard(){
   this.productsService.merch()
@@ -54,7 +48,18 @@ detailMerch(productId: number){
 addCart(product: IMerch) {
     this.productsService.addProducts(product, 0);
   }
+
+
+goNext() {
+  this.defaultTransform = this.defaultTransform - 398;
+  if (Math.abs(this.defaultTransform) >= this.slider.scrollWidth / 1.7) this.defaultTransform = 0;
+  this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
 }
 
+goPrev() {
+  if (Math.abs(this.defaultTransform) === 0) this.defaultTransform = 0;
+  else this.defaultTransform = this.defaultTransform + 398;
+  this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
+}
 
-
+}
