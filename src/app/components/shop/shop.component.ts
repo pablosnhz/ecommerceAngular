@@ -19,7 +19,7 @@ export class ShopComponent {
     .subscribe(products => {
       this.products = products;
 
-      console.log('Productos actualizados', this.products)
+      // console.log('Productos actualizados', this.products)
       this.quantityProduct();
     });
   }
@@ -27,7 +27,7 @@ export class ShopComponent {
   quantityProduct(){
     this.totalQuantity = this.products.reduce((total, item) =>
       total + item.quantity, 0)
-    console.log('total agregado', this.totalQuantity )
+    // console.log('total agregado', this.totalQuantity )
   }
 
 

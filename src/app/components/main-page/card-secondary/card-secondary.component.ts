@@ -17,11 +17,6 @@ slider: any;
 defaultTransform: any;
 merchList: IMerch[] = [];
 
-
-
-
-
-
 constructor(private route: Router, private productsService: ProductsService){}
 
 ngOnInit(): void {

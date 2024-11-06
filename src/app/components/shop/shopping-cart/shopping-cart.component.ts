@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { map, takeUntil } from 'rxjs';
 import { IProducts } from 'src/app/interface/products';
 import { ProductsService } from 'src/app/services/productos.service';
+import { CheckoutService } from './services/checkout.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,6 +14,8 @@ export class ShoppingCartComponent implements OnInit{
   products: { product: IProducts; quantity: number; }[] = [];
   total: number = 0;
 
+  private readonly _checkoutService = inject(CheckoutService);
+
   constructor(private productsService: ProductsService){}
 
   ngOnInit(){
@@ -22,6 +25,10 @@ export class ShoppingCartComponent implements OnInit{
 
     this.suma();
     })
+  }
+
+  onClickCheckout(): void{
+    this._checkoutService.onProceedcheckout();
   }
 
   onClickDelete(i: number){
@@ -38,9 +45,9 @@ export class ShoppingCartComponent implements OnInit{
 
   incrementQuantity(index: number) {
     this.products[index].quantity++;
-    console.log('sumando productos', this.products)
+    // console.log('sumando productos', this.products);
 
-    this.productsService.updateCart()
+    this.productsService.updateCart();
     this.suma();
   }
 
@@ -48,7 +55,7 @@ export class ShoppingCartComponent implements OnInit{
     if (this.products[index].quantity > 1) {
       this.products[index].quantity--;
 
-      this.productsService.updateCart()
+      this.productsService.updateCart();
       this.suma();
     }
   }

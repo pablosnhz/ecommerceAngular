@@ -7,7 +7,6 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'ecommerceAngular';
 
   constructor(private router: Router) { }
 
