@@ -11,6 +11,10 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./components/shop/shop.module').then((m) => m.ShopsRoutingModule)
+      },
+      {
+        path: 'home',
+        component: MainPageComponent
       }
     ]
   },
